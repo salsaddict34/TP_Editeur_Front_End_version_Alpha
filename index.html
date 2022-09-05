@@ -4,9 +4,124 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/global.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <title>Editeur Front End version Alpha</title>
 </head>
+<script>
+    $( function() {
+           $( "#progressbarHtml").progressbar({
+           value: 0,
+           max: 200
+           });
+           $( "#progressbarCss").progressbar({
+           value: 0,
+           max: 200
+           });
+           $( "#progressbarJs").progressbar({
+           value: 0,
+           max: 200
+           });
+       } );
+</script>
+<script>
+    function updateIframe(){
+        var myFrame = $(".resultArea").contents().find('body');
+        var textareaHtmlValue = $(".htmlArea").val();
+        var textareaCssValue = $(".cssArea").val();
+        var textareaJsValue = $(".jsArea").val();
+        myFrame.html(textareaHtmlValue);
+        var cssLink = "<style>" + textareaCssValue + "</style>";
+        var head = $(".resultArea").contents().find("head");
+        head.append(cssLink);
+        var js ='<script>'+textareaJsValue+'<\/script>';
+        var content = $('.resultArea').contents();
+        content.find('body').append(js );
+        /*--------------------------------------------------------------*/
+        /*--------------------------------------------------------------*/
+        /*--------------------------------------------------------------*/
+        var textHtml = $('.htmlArea').val();
+        var countHtmlChar = textHtml.length
+        $( "#progressbarHtml" ).progressbar( "value", countHtmlChar );
+        var rateHtml = (countHtmlChar/200)*100;
+        if ( rateHtml < 25) {
+            $('#progressbarHtml > div').css({'background': 'green'});
+        } else if (rateHtml > 25 && rateHtml < 50) {
+            $('#progressbarHtml > div').css({'background': 'yellow'});
+        } else if (rateHtml > 50 && rateHtml < 75) {
+            $('#progressbarHtml > div').css({'background': 'orange'});
+        } else if (rateHtml > 75) {
+            $('#progressbarHtml > div').css({'background': 'red'});
+        }
+        var textCss = $('.cssArea').val();
+        var countCssChar = textCss.length
+        $( "#progressbarCss" ).progressbar( "value", countCssChar );
+        var rateCss = (countCssChar/200)*100;
+        if ( rateCss < 25) {
+            $('#progressbarCss > div').css({'background': 'green'});
+        } else if (rateCss > 25 && rateCss < 50) {
+            $('#progressbarCss > div').css({'background': 'yellow'});
+        } else if (rateCss > 50 && rateCss < 75) {
+            $('#progressbarCss > div').css({'background': 'orange'});
+        } else if (rateCss > 75) {
+            $('#progressbarCss > div').css({'background': 'red'});
+        }
+        var textJs = $('.jsArea').val();
+        var countJsChar = textJs.length
+        $( "#progressbarJs" ).progressbar( "value", countJsChar );
+        var rateJs = (countJsChar/200)*100;
+        if ( rateJs < 25) {
+            $('#progressbarJs > div').css({'background': 'green'});
+        } else if (rateJs > 25 && rateJs < 50) {
+            $('#progressbarJs > div').css({'background': 'yellow'});
+        } else if (rateJs > 50 && rateJs < 75) {
+            $('#progressbarJs > div').css({'background': 'orange'});
+        } else if (rateJs > 75) {
+            $('#progressbarJs > div').css({'background': 'red'});
+        }
+        event.preventDefault();
+    }
+</script>
 <body>
-    
+    <!------------------------------------------Entête---------------------------------------------------------->
+    <header>
+        <h1>Editor HTML & CSS & JS</h1>
+    </header>
+    <!------------------------------------------Formulaire Editeur-------------------------------------------------->
+    <form action="" class="editionForm">
+        <div class="editionArea">
+            <h2>HTML</h2>
+            <textarea class="htmlArea" spellcheck="false" oninput="updateIframe();"></textarea>
+            <div id="progressbarHtml"></div>
+        </div>
+        <div class="editionArea">
+            <h2>CSS</h2>
+            <textarea class="cssArea" spellcheck="false" oninput="updateIframe();"></textarea>
+            <div id="progressbarCss"></div>
+        </div>
+        <div class="editionArea">
+            <h2>JS</h2>
+            <textarea class="jsArea" spellcheck="false"></textarea>
+            <div id="progressbarJs"></div>
+            <button class="jsButton" onclick="updateIframe();">Executer</button>
+        </div>
+    </form>
+    <section class="toolBar">
+        <button name="boldButton" class="boldButton">b</button>
+        <button name="italicButton" class="italicButton">i</button>
+        <label for="textSize">Characters:</label>
+    </section>
+    <!------------------------------------------Section Visuel-------------------------------------------------->
+    <section class="display">
+        <h2>Live_Coding</h2>
+        <iframe class="resultArea" srcdoc="HTML_code"></iframe>
+        <!--<textarea name="resultArea" class="resultArea"></textarea>!-->
+    </section>
+    <!------------------------------------------Pied de page---------------------------------------------------->
+    <footer>
+
+    </footer>
 </body>
 </html>
