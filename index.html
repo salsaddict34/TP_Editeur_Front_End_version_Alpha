@@ -102,10 +102,10 @@
         $('.htmlCharMax').text('(max'+ ' '+sel.value+' '+'caractères)');
     }
     function updateCssSelect(sel){
-        let textCss = $('.csslArea').val();
+        let textCss = $('.cssArea').val();
         let textCssParsed = textCss.replaceAll(/\{|\}|\s|:|;|\.|#|\n/g, '');
-        let delta = textCss.length - textCssParsed.length;
-        $('.cssArea').attr('maxlength', sel.value + delta);
+        let deltaCss = textCss.length - textCssParsed.length;
+        $('.cssArea').attr('maxlength', sel.value + deltaCss);
         $('.cssCharMax').text('(max'+ ' '+sel.value+' '+'caractères)');
     }
     function updateJsSelect(sel){
@@ -228,20 +228,20 @@
     <!---------------------------------------------Toolbar----------------------------------------------------->
     <section class="toolBar">
         <div class="htmlTools">
-            <button name="divButton" class="divButton" onclick="insertTag('div');">div</button>
-            <button name="pButton" class="pButton" onclick="insertTag('p');">p</button>
             <select class="titleSelect" onchange="insertTitleSelect(this);">
                 <option value="">--Balises Titre--</option>
                 <option value="h1">h1</option>
                 <option value="h2">h2</option>
                 <option value="h3">h3</option>
             </select>
-            <button name="sectionButton" class="sectionButton" onclick="insertTag('section');">section</button>
-            <button name="formButton" class="formButton" onclick="insertTag('form');">form</button>
             <button name="aButton" class="aButton" onclick="insertTag('a');">a</button>
-            <button name="imageButton" class="imageButton" onclick="insertTag('image');">image</button>
             <button name="boldButton" class="boldButton" onclick="insertTag('b');">b</button>
+            <button name="divButton" class="divButton" onclick="insertTag('div');">div</button>
+            <button name="formButton" class="formButton" onclick="insertTag('form');">form</button>
             <button name="italicButton" class="italicButton" onclick="insertTag('i');">i</button>
+            <button name="imageButton" class="imageButton" onclick="insertTag('image');">image</button>
+            <button name="pButton" class="pButton" onclick="insertTag('p');">p</button>
+            <button name="sectionButton" class="sectionButton" onclick="insertTag('section');">section</button>
         </div>
         <div class="cssTools">
             <select class="colorSelect" onchange="insertColorSelect(this);">
