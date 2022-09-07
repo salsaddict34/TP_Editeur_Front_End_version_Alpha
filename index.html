@@ -28,24 +28,26 @@
 </script>
 <script>
     function updateIframe(){
-        var myFrame = $(".resultArea").contents().find('body');
         var textareaHtmlValue = $(".htmlArea").val();
         var textareaCssValue = $(".cssArea").val();
         var textareaJsValue = $(".jsArea").val();
-        myFrame.html(textareaHtmlValue);
         var cssLink = "<style>" + textareaCssValue + "</style>";
+        var js ='<script>'+textareaJsValue+'<\/script>';
+        var myFrame = $(".resultArea").contents().find('body');
         var head = $(".resultArea").contents().find("head");
         head.append(cssLink);
-        var js ='<script>'+textareaJsValue+'<\/script>';
-        var content = $('.resultArea').contents();
-        content.find('body').append(js );
+        myFrame.append(js);
+        myFrame.html(textareaHtmlValue);
         /*--------------------------------------------------------------*/
         /*--------------------------------------------------------------*/
-        /*--------------------------------------------------------------*/
+        /****************************HTML**********************************************/
         var textHtml = $('.htmlArea').val();
-        var countHtmlChar = textHtml.length
+        textHtml = textHtml.replaceAll(/<[^>]+>|$nbsp;| |\n/g, '');
+        var countHtmlChar = textHtml.length;
+        var htmlMaxLength = $('.htmlArea').attr('maxlength');
+        var rateHtml = (countHtmlChar/htmlMaxLength)*100;
         $( "#progressbarHtml" ).progressbar( "value", countHtmlChar );
-        var rateHtml = (countHtmlChar/200)*100;
+        $( "#progressbarHtml" ).progressbar( "option", "max", htmlMaxLength);
         if ( rateHtml < 25) {
             $('#progressbarHtml > div').css({'background': 'green'});
         } else if (rateHtml > 25 && rateHtml < 50) {
@@ -55,10 +57,14 @@
         } else if (rateHtml > 75) {
             $('#progressbarHtml > div').css({'background': 'red'});
         }
+        /******************************CSS****************************************/
         var textCss = $('.cssArea').val();
+        textCss = textCss.replaceAll(/\{|\}|\s|:|;|\.|#|\n/g, '');
         var countCssChar = textCss.length
+        var cssMaxLength = $('.cssArea').attr('maxlength');
+        var rateCss = (countCssChar/cssMaxLength)*100;
         $( "#progressbarCss" ).progressbar( "value", countCssChar );
-        var rateCss = (countCssChar/200)*100;
+        $( "#progressbarCss" ).progressbar( "option", "max", cssMaxLength);
         if ( rateCss < 25) {
             $('#progressbarCss > div').css({'background': 'green'});
         } else if (rateCss > 25 && rateCss < 50) {
@@ -68,10 +74,13 @@
         } else if (rateCss > 75) {
             $('#progressbarCss > div').css({'background': 'red'});
         }
+        /******************************JS****************************************/
         var textJs = $('.jsArea').val();
-        var countJsChar = textJs.length
+        var countJsChar = textJs.length;
+        var jsMaxLength = $('.jsArea').attr('maxlength');
+        var rateJs = (countJsChar/jsMaxLength)*100;
         $( "#progressbarJs" ).progressbar( "value", countJsChar );
-        var rateJs = (countJsChar/200)*100;
+        $( "#progressbarJs" ).progressbar( "option", "max", jsMaxLength);
         if ( rateJs < 25) {
             $('#progressbarJs > div').css({'background': 'green'});
         } else if (rateJs > 25 && rateJs < 50) {
@@ -81,7 +90,93 @@
         } else if (rateJs > 75) {
             $('#progressbarJs > div').css({'background': 'red'});
         }
+        /*----------------------------------------------------------*/
         event.preventDefault();
+    }
+    /********************************************************************************/
+    function updateHtmlSelect(sel){
+        let textHtml = $('.htmlArea').val();
+        let textParsed = textHtml.replaceAll(/<[^>]+>|$nbsp;| |\n/g, '');
+        let delta = textHtml.length - textParsed.length;
+        $('.htmlArea').attr('maxlength', sel.value + delta);
+        $('.htmlCharMax').text('(max'+ ' '+sel.value+' '+'caractères)');
+    }
+    function updateCssSelect(sel){
+        let textCss = $('.csslArea').val();
+        let textCssParsed = textCss.replaceAll(/\{|\}|\s|:|;|\.|#|\n/g, '');
+        let delta = textCss.length - textCssParsed.length;
+        $('.cssArea').attr('maxlength', sel.value + delta);
+        $('.cssCharMax').text('(max'+ ' '+sel.value+' '+'caractères)');
+    }
+    function updateJsSelect(sel){
+        $('.jsArea').attr('maxlength', sel.value);
+        $('.jsCharMax').text('(max'+ ' '+sel.value+' '+'caractères)');
+    }
+    /*******************************************************************/
+    function insertTag(tag) {
+        var textareaHtmlValue = $(".htmlArea").val();
+        switch (tag) {
+            case 'div':
+                $(".htmlArea").val(textareaHtmlValue + "<div></div>");
+            break;
+            case 'p': 
+                $(".htmlArea").val(textareaHtmlValue + "<p></p>");
+            break;
+            case 'section': 
+                $(".htmlArea").val(textareaHtmlValue + "<section></section>");
+            break;
+            case 'form': 
+                $(".htmlArea").val(textareaHtmlValue + "<form></form>");
+            break;
+            case 'a': 
+                $(".htmlArea").val(textareaHtmlValue + "<a></a>");
+            break;
+            case 'image': 
+                $(".htmlArea").val(textareaHtmlValue + "<image/>");
+            break;
+            case 'b': 
+                $(".htmlArea").val(textareaHtmlValue + "<b></b>");
+            break;
+            case 'i': 
+                $(".htmlArea").val(textareaHtmlValue + "<i></i>");
+            break;
+        }
+    }
+    /*******************************************************************/
+    function insertTitleSelect(sel) {
+        var textareaHtmlValue = $(".htmlArea").val();
+        switch (sel.value) {
+            case 'h1':
+                $(".htmlArea").val(textareaHtmlValue + "<h1></h1>");
+            break;
+            case 'h2': 
+                $(".htmlArea").val(textareaHtmlValue + "<h2></h2>");
+            break;
+            case 'h3': 
+                $(".htmlArea").val(textareaHtmlValue + "<h3></h3>");
+            break;
+        }
+    }
+    /*******************************************************************/
+    function insertColorSelect(sel) {
+        var textareaCssValue = $(".cssArea").val();
+        switch (sel.value) {
+            case 'Blanc':
+                $(".cssArea").val(textareaCssValue + "#FFFFFF");
+            break;
+            case 'Rouge':
+                $(".cssArea").val(textareaCssValue + "#C0392B");
+            break;
+            case 'Vert':
+                $(".cssArea").val(textareaCssValue + "#27AE60");
+            break;
+            case 'Bleu':
+                $(".cssArea").val(textareaCssValue + "#2980B9");
+            break;
+            case 'Jaune':
+                $(".cssArea").val(textareaCssValue + "#F1C40F");
+            break;
+        }
     }
 </script>
 <body>
@@ -93,35 +188,96 @@
     <form action="" class="editionForm">
         <div class="editionArea">
             <h2>HTML</h2>
-            <textarea class="htmlArea" spellcheck="false" oninput="updateIframe();"></textarea>
+        <select id="htmlChar" onchange="updateHtmlSelect(this);">
+            <option value="">--Caractères max--</option>
+            <option value="200">200 caractères</option>
+            <option value="400">400 caractères</option>
+            <option value="600">600 caractères</option>
+        </select>
+        <div class="htmlAnimation"></div>
+            <textarea class="htmlArea" spellcheck="false" oninput="updateIframe();" maxlength="200"></textarea>
             <div id="progressbarHtml"></div>
+            <label class="htmlCharMax"></label>
         </div>
         <div class="editionArea">
             <h2>CSS</h2>
-            <textarea class="cssArea" spellcheck="false" oninput="updateIframe();"></textarea>
+            <select id="cssChar" onchange="updateCssSelect(this);">
+                <option value="">--Caractères max--</option>
+                <option value="200">200 caractères</option>
+                <option value="400">400 caractères</option>
+                <option value="600">600 caractères</option>
+            </select>
+            <div class="cssAnimation"></div>
+            <textarea class="cssArea" spellcheck="false" oninput="updateIframe();" maxlength="200"></textarea>
             <div id="progressbarCss"></div>
+            <label class="cssCharMax"></label>
         </div>
         <div class="editionArea">
             <h2>JS</h2>
-            <textarea class="jsArea" spellcheck="false"></textarea>
+            <select id="jsChar" onchange="updateJsSelect(this);">
+                <option value="">--Caractères max--</option>
+                <option value="200">200 caractères</option>
+                <option value="400">400 caractères</option>
+                <option value="600">600 caractères</option>
+            </select>
+            <textarea class="jsArea" spellcheck="false" maxlength="200"></textarea>
             <div id="progressbarJs"></div>
-            <button class="jsButton" onclick="updateIframe();">Executer</button>
+            <label class="jsCharMax"></label>
         </div>
     </form>
+    <!---------------------------------------------Toolbar----------------------------------------------------->
     <section class="toolBar">
-        <button name="boldButton" class="boldButton">b</button>
-        <button name="italicButton" class="italicButton">i</button>
-        <label for="textSize">Characters:</label>
+        <div class="htmlTools">
+            <button name="divButton" class="divButton" onclick="insertTag('div');">div</button>
+            <button name="pButton" class="pButton" onclick="insertTag('p');">p</button>
+            <select class="titleSelect" onchange="insertTitleSelect(this);">
+                <option value="">--Balises Titre--</option>
+                <option value="h1">h1</option>
+                <option value="h2">h2</option>
+                <option value="h3">h3</option>
+            </select>
+            <button name="sectionButton" class="sectionButton" onclick="insertTag('section');">section</button>
+            <button name="formButton" class="formButton" onclick="insertTag('form');">form</button>
+            <button name="aButton" class="aButton" onclick="insertTag('a');">a</button>
+            <button name="imageButton" class="imageButton" onclick="insertTag('image');">image</button>
+            <button name="boldButton" class="boldButton" onclick="insertTag('b');">b</button>
+            <button name="italicButton" class="italicButton" onclick="insertTag('i');">i</button>
+        </div>
+        <div class="cssTools">
+            <select class="colorSelect" onchange="insertColorSelect(this);">
+                <option value="">--Couleurs Css--</option>
+                <option class="blanc" value="Blanc">Blanc</option>
+                <option class="rouge" value="Rouge">Rouge</option>
+                <option class="vert" value="Vert">Vert</option>
+                <option class="bleu" value="Bleu">Bleu</option>
+                <option class="jaune" value="Jaune">Jaune</option>
+            </select>
+        </div>
     </section>
     <!------------------------------------------Section Visuel-------------------------------------------------->
     <section class="display">
         <h2>Live_Coding</h2>
-        <iframe class="resultArea" srcdoc="HTML_code"></iframe>
-        <!--<textarea name="resultArea" class="resultArea"></textarea>!-->
+        <iframe class="resultArea" srcdoc="Live_code"></iframe>
     </section>
     <!------------------------------------------Pied de page---------------------------------------------------->
     <footer>
 
     </footer>
 </body>
+<script>
+    /******************HTML****************************/
+    $( ".htmlArea" ).focusin(function() {
+      $( ".htmlAnimation" ).css( "display", "inline" );
+    });
+    $( ".htmlArea" ).focusout(function() {
+      $( ".htmlAnimation" ).css( "display", "none" );
+    });
+    /******************CSS****************************/
+    $( ".cssArea" ).focusin(function() {
+      $( ".cssAnimation" ).css( "display", "inline" );
+    });
+    $( ".cssArea" ).focusout(function() {
+      $( ".cssAnimation" ).css( "display", "none" );
+    });
+</script>
 </html>
