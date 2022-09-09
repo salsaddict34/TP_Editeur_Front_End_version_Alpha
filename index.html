@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="js/main.js"></script>
     <title>Editeur Front End version Alpha</title>
 </head>
 <script>
@@ -180,25 +181,50 @@
     }
 </script>
 <body>
-    <!------------------------------------------Entête---------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------- Header --------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------->
+    
     <header>
         <h1>Editor HTML & CSS & JS</h1>
     </header>
-    <!------------------------------------------Formulaire Editeur-------------------------------------------------->
+
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!--------------------------------------------- Editor Form ------------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------------------->
+    
+                       <!-------------------------- HTML Area ---------------------------------->
     <form action="" class="editionForm">
         <div class="editionArea">
             <h2>HTML</h2>
-        <select id="htmlChar" onchange="updateHtmlSelect(this);">
-            <option value="">--Caractères max--</option>
-            <option value="200">200 caractères</option>
-            <option value="400">400 caractères</option>
-            <option value="600">600 caractères</option>
-        </select>
-        <div class="htmlAnimation"></div>
+            <select id="htmlChar" onchange="updateHtmlSelect(this);">
+                <option value="">--Caractères max--</option>
+                <option value="200">200 caractères</option>
+                <option value="400">400 caractères</option>
+                <option value="600">600 caractères</option>
+            </select>
+            <div class="htmlTools">
+                <select class="titleSelect" onchange="insertTitleSelect(this);">
+                    <option value="">--Balises Titre--</option>
+                    <option value="h1">h1</option>
+                    <option value="h2">h2</option>
+                    <option value="h3">h3</option>
+                </select>
+                <button name="aButton" class="aButton" onclick="insertTag('a');">a</button>
+                <button name="boldButton" class="boldButton" onclick="insertTag('b');">b</button>
+                <button name="divButton" class="divButton" onclick="insertTag('div');">div</button>
+                <button name="formButton" class="formButton" onclick="insertTag('form');">form</button>
+                <button name="italicButton" class="italicButton" onclick="insertTag('i');">i</button>
+                <button name="imageButton" class="imageButton" onclick="insertTag('image');">image</button>
+                <button name="pButton" class="pButton" onclick="insertTag('p');">p</button>
+                <button name="sectionButton" class="sectionButton" onclick="insertTag('section');">section</button>
+            </div>
             <textarea class="htmlArea" spellcheck="false" oninput="updateIframe();" maxlength="200"></textarea>
             <div id="progressbarHtml"></div>
             <label class="htmlCharMax"></label>
+            <div class="htmlAnimation"></div>
         </div>
+                        <!-------------------------- CSS Area ---------------------------------->  
         <div class="editionArea">
             <h2>CSS</h2>
             <select id="cssChar" onchange="updateCssSelect(this);">
@@ -207,11 +233,22 @@
                 <option value="400">400 caractères</option>
                 <option value="600">600 caractères</option>
             </select>
-            <div class="cssAnimation"></div>
+            <div class="cssTools">
+                <select class="colorSelect" onchange="insertColorSelect(this);">
+                    <option value="">--Couleurs Css--</option>
+                    <option class="blanc" value="Blanc"></option>
+                    <option class="rouge" value="Rouge"></option>
+                    <option class="vert" value="Vert"></option>
+                    <option class="bleu" value="Bleu"></option>
+                    <option class="jaune" value="Jaune"></option>
+                </select>
+            </div>
             <textarea class="cssArea" spellcheck="false" oninput="updateIframe();" maxlength="200"></textarea>
             <div id="progressbarCss"></div>
             <label class="cssCharMax"></label>
+            <div class="cssAnimation"></div>
         </div>
+                         <!-------------------------- JS Area ---------------------------------->
         <div class="editionArea">
             <h2>JS</h2>
             <select id="jsChar" onchange="updateJsSelect(this);">
@@ -225,45 +262,25 @@
             <label class="jsCharMax"></label>
         </div>
     </form>
-    <!---------------------------------------------Toolbar----------------------------------------------------->
-    <section class="toolBar">
-        <div class="htmlTools">
-            <select class="titleSelect" onchange="insertTitleSelect(this);">
-                <option value="">--Balises Titre--</option>
-                <option value="h1">h1</option>
-                <option value="h2">h2</option>
-                <option value="h3">h3</option>
-            </select>
-            <button name="aButton" class="aButton" onclick="insertTag('a');">a</button>
-            <button name="boldButton" class="boldButton" onclick="insertTag('b');">b</button>
-            <button name="divButton" class="divButton" onclick="insertTag('div');">div</button>
-            <button name="formButton" class="formButton" onclick="insertTag('form');">form</button>
-            <button name="italicButton" class="italicButton" onclick="insertTag('i');">i</button>
-            <button name="imageButton" class="imageButton" onclick="insertTag('image');">image</button>
-            <button name="pButton" class="pButton" onclick="insertTag('p');">p</button>
-            <button name="sectionButton" class="sectionButton" onclick="insertTag('section');">section</button>
-        </div>
-        <div class="cssTools">
-            <select class="colorSelect" onchange="insertColorSelect(this);">
-                <option value="">--Couleurs Css--</option>
-                <option class="blanc" value="Blanc">Blanc</option>
-                <option class="rouge" value="Rouge">Rouge</option>
-                <option class="vert" value="Vert">Vert</option>
-                <option class="bleu" value="Bleu">Bleu</option>
-                <option class="jaune" value="Jaune">Jaune</option>
-            </select>
-        </div>
-    </section>
-    <!------------------------------------------Section Visuel-------------------------------------------------->
+   
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------- Display Section ---------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------->
+    
     <section class="display">
         <h2>Live_Coding</h2>
         <iframe class="resultArea" srcdoc="Live_code"></iframe>
     </section>
-    <!------------------------------------------Pied de page---------------------------------------------------->
-    <footer>
 
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------- Footer --------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------->
+    
+    <footer>
+        <h3>AFPA CDA Training Courses</h3>
     </footer>
 </body>
+
 <script>
     /******************HTML****************************/
     $( ".htmlArea" ).focusin(function() {

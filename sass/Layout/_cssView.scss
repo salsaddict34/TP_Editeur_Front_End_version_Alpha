@@ -1,0 +1,145 @@
+#cssChar{
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.cssTools{
+    grid-row: 1;
+    grid-column: 2/3;
+}
+
+.cssArea {
+    grid-column: 2;
+    grid-row: 2;
+    height: 300px;
+    min-width: 500px;
+}
+
+#progressbarCss {
+    grid-row: 3;
+    width: auto;
+    height: 10px;
+}
+
+.cssAnimation {
+    display: none;
+    grid-column: 2/3;
+    grid-row: 4;
+    height: 15px;
+    color: $animationFontColor;
+}
+
+.cssAnimation:before {
+    content: " ";
+    animation-name: writing-css;
+    animation-duration: 8s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes writing-css
+{
+	from
+	{
+		content: " ";
+	}
+	5%
+	{
+		content: "#";
+	}
+	10%
+	{
+		content: "#t";
+    }
+	15%
+	{
+		content: "#ta";
+	}
+	20%
+	{
+		content: "#tag ";
+	}
+	25%
+	{
+		content: "#tag {}";
+	}
+	30%
+	{
+		content: "#tag {c}";
+	}
+	35%
+	{
+		content: "#tag {co}";
+	}
+    40%
+	{
+		content: "#tag {col}";
+	}
+	45%
+	{
+		content: "#tag {colo}";
+	}
+	50%
+	{
+		content: "#tag {color}";
+	}
+	55%
+	{
+		content: "#tag {color:}";
+	}
+	60%
+	{
+		content: "#tag {color: }";
+	}
+	65%
+	{
+		content: "#tag {color: g}";
+	}
+    70%
+	{
+		content: "#tag {color: gr}";
+	}
+	75%
+	{
+		content: "#tag {color: gre}";
+	}
+	80%
+	{
+		content: "#tag {color: gree}";
+	}
+	85%
+	{
+		content: "#tag {color: green}";
+	}
+	90%
+	{
+		content: "#tag {color: green;}";
+	}
+	95%
+	{
+		content: "#tag {color: green;}";
+	}
+	to
+	{
+		content: "#tag {color: green;}";
+	}
+}
+
+.blanc {
+    background-color: white;
+}
+
+.rouge {
+    background-color: red;
+}
+
+.vert {
+    background-color: green;
+}
+
+.bleu {
+    background-color: blue;
+}
+
+.jaune {
+    background-color: yellow;
+}

@@ -1,0 +1,29 @@
+.editionForm {
+    width: 100%;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(400px, auto);
+}
+
+.editionArea {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.editionArea > h2 {
+    grid-row: 1;
+    text-align: center;
+    color: $h2Color;
+    font-size: $h2FontSize;
+}
+
+select {
+    background-color: orange;
+    border-radius: 30% 30% 0% 0%;
+}
+
+label {
+    text-align: center;
+    color: $labelColor;
+}

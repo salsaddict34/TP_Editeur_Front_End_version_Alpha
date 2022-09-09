@@ -1,0 +1,54 @@
+/**********************************************************************************************/
+/**************************************** Custom Fonts ****************************************/
+/**********************************************************************************************/
+@font-face {
+    font-family: 'AlexBrush-Regular';
+    src: url('../font/AlexBrush-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BallparkWeiner';
+    src: url('../font/ballpark.eot');
+    src: url('../font/ballpark.eot?#iefix') format('embedded-opentype'),
+        url('../font/ballpark.woff') format('woff'),
+        url('../font/ballpark.ttf') format('truetype'),
+        url('../font/ballpark.svg#BallparkWeiner') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Dayrom';
+    src: url('../font/dayrom.eot');
+    src: url('../font/dayrom.eot?#iefix') format('embedded-opentype'),
+        url('../font/dayrom.woff') format('woff'),
+        url('../font/dayrom.ttf') format('truetype'),
+        url('../font/dayrom.svg#Dayrom') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$header-font: Dayrom;
+$section-font: BallparkWeiner;
+
+$h1FontSize: 30px;
+$h2FontSize: 20px;
+$h3FontSize: 18px;
+
+
+$backgroundPageColor: orange;
+$backgroundBodyColor: rgb(31, 25, 25);
+$borderColor: black;
+$h2Color: white;
+$h1Color: white;
+$h3Color: white;
+$labelColor: white;
+$animationFontColor: white;
+$buttonColor: orange;
+
+$header-height: 150px;
+$flag-height: 50px;
+$nav-height: 50px;
+$footer-height: 50px;

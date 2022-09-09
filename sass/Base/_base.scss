@@ -1,0 +1,13 @@
+html {
+    background-color: $backgroundPageColor;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: $backgroundBodyColor;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: solid;
+    border-radius: 10px;
+    box-shadow: 5px;
+}
