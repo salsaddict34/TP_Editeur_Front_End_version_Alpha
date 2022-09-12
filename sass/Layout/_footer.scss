@@ -1,10 +1,11 @@
 footer {
     grid-row: 5;
     margin: auto;
-    width: 600px;
+    width: 100%;
     height: $footer-height;
 }
 
 h3 {
+    text-align: center;
     color: $h3Color;
 }

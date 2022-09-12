@@ -61,73 +61,91 @@ h1 {
   grid-row: 2;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(400px, auto);
-}
-
-.editionArea {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.editionArea > h2 {
-  grid-row: 1;
-  text-align: center;
-  color: white;
-  font-size: 20px;
+  grid-auto-rows: minmax(450px, auto);
 }
 
 select {
   background-color: orange;
-  border-radius: 30% 30% 0% 0%;
+  border-radius: 5% 5% 0% 0%;
 }
 
 label {
   text-align: center;
   color: white;
-  grid-row: 4;
 }
 
 /**********************************************************************************************/
 /***************************************** HTML View ******************************************/
 /**********************************************************************************************/
-#htmlChar {
+.htmlArea {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.htmlArea > h2 {
   grid-row: 1;
+  grid-column: 1/3;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+.htmlArea__params {
+  grid-row: 2;
   grid-column: 1;
+  height: 40px;
+  width: 40px;
+  background-image: url("../images/btnParams.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: orange;
+  border-radius: 5px;
 }
-
-.htmlTools {
-  grid-row: 1;
-  grid-column: 2/3;
+.htmlArea__params--close {
+  background-image: url("../images/orangeCross.png");
 }
-
-button {
+.htmlArea__selectChar {
+  display: none;
+  grid-row: 2;
+  grid-column: 1/2;
+  width: 100%;
+  height: 40px;
+  transform: translateX(42px);
+}
+.htmlArea__selectChar--visible {
+  display: inline;
+}
+.htmlArea__tools {
+  grid-row: 3;
+  grid-column: 1/3;
+}
+.htmlArea__tools__tagButton {
   border-radius: 10px;
   background-color: orange;
 }
-
-.htmlArea {
-  grid-column: 1;
-  grid-row: 1/3;
+.htmlArea__text {
+  grid-row: 4;
+  grid-column: 1/3;
   height: 300px;
   min-width: 500px;
+  background-color: rgb(160, 140, 140);
 }
-
-#progressbarHtml {
-  grid-row: 3;
+.htmlArea__progressbar {
+  grid-row: 5;
   grid-column: 1/3;
   width: auto;
   height: 10px;
 }
-
-.htmlAnimation {
+.htmlArea__maxChar {
+  grid-row: 6;
+  grid-column: 1;
+}
+.htmlArea__animation {
   display: none;
+  grid-row: 6;
   grid-column: 2/3;
-  grid-row: 4;
   height: 15px;
   color: white;
 }
-
-.htmlAnimation:before {
+.htmlArea__animation:before {
   content: " ";
   -webkit-animation-name: writing-html;
           animation-name: writing-html;
@@ -271,38 +289,77 @@ button {
 /**********************************************************************************************/
 /***************************************** CSS View *******************************************/
 /**********************************************************************************************/
-#cssChar {
+.cssArea {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.cssArea > h2 {
   grid-row: 1;
+  grid-column: 1/3;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+.cssArea__params {
+  grid-row: 2;
+  grid-column: 1;
+  height: 40px;
+  width: 40px;
+  background-image: url("../images/btnParams.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: orange;
+  border-radius: 5px;
+}
+.cssArea__selectChar {
+  display: none;
+  grid-row: 2;
   grid-column: 1;
 }
-
-.cssTools {
-  grid-row: 1;
-  grid-column: 2/3;
+.cssArea__tools {
+  grid-row: 3;
+  grid-column: 1/3;
 }
-
-.cssArea {
-  grid-column: 2;
-  grid-row: 2;
+.cssArea__tools__selectColor--blanc {
+  background-color: white;
+}
+.cssArea__tools__selectColor--rouge {
+  background-color: red;
+}
+.cssArea__tools__selectColor--vert {
+  background-color: green;
+}
+.cssArea__tools__selectColor--bleu {
+  background-color: blue;
+}
+.cssArea__tools__selectColor--jaune {
+  background-color: yellow;
+}
+.cssArea__text {
+  grid-column: 1/3;
+  grid-row: 4;
   height: 300px;
   min-width: 500px;
+  background-color: rgb(160, 140, 140);
 }
-
-#progressbarCss {
-  grid-row: 3;
+.cssArea__progressbar {
+  grid-row: 5;
+  grid-column: 1/3;
   width: auto;
   height: 10px;
 }
-
-.cssAnimation {
+.cssArea__maxChar {
+  grid-row: 6;
+  grid-column: 1;
+}
+.cssArea__animation {
   display: none;
   grid-column: 2/3;
-  grid-row: 4;
+  grid-row: 6;
   height: 15px;
   color: white;
 }
-
-.cssAnimation:before {
+.cssArea__animation:before {
   content: " ";
   -webkit-animation-name: writing-css;
           animation-name: writing-css;
@@ -443,37 +500,46 @@ button {
     content: "#tag {color: green;}";
   }
 }
-.blanc {
-  background-color: white;
-}
-
-.rouge {
-  background-color: red;
-}
-
-.vert {
-  background-color: green;
-}
-
-.bleu {
-  background-color: blue;
-}
-
-.jaune {
-  background-color: yellow;
-}
-
 /**********************************************************************************************/
 /***************************************** JS View ********************************************/
 /**********************************************************************************************/
 .jsArea {
-  grid-column: 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.jsArea > h2 {
+  grid-row: 1;
+  grid-column: 1/3;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+.jsArea__params {
   grid-row: 2;
+  grid-column: 1;
+  height: 40px;
+  width: 40px;
+  background-image: url("../images/btnParams.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: orange;
+  border-radius: 5px;
+}
+.jsArea__selectChar {
+  display: none;
+  grid-row: 2;
+  grid-column: 1;
+}
+.jsArea__text {
+  grid-row: 4;
+  grid-column: 1/3;
   height: 300px;
   min-width: 500px;
+  background-color: rgb(160, 140, 140);
 }
-
-#progressbarJs {
+.jsArea__progressbar {
+  grid-row: 5;
+  grid-column: 1/3;
   width: auto;
   height: 10px;
 }
@@ -481,21 +547,26 @@ button {
 /**********************************************************************************************/
 /***************************************** Display ********************************************/
 /**********************************************************************************************/
-.display {
+.displayArea {
   grid-row: 4;
   grid-column: 1/3;
   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
-
-.display > h2 {
+.displayArea > h2 {
+  grid-row: 1;
+  grid-column: 1/3;
   text-align: center;
   color: white;
 }
-
-.resultArea {
+.displayArea__result {
+  grid-row: 2;
+  grid-column: 1/3;
   width: 100%;
   height: 300px;
   border-radius: 10px;
+  background-color: rgb(160, 140, 140);
 }
 
 /**********************************************************************************************/
@@ -504,11 +575,12 @@ button {
 footer {
   grid-row: 5;
   margin: auto;
-  width: 600px;
+  width: 100%;
   height: 50px;
 }
 
 h3 {
+  text-align: center;
   color: white;
 }
 
