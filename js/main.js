@@ -87,3 +87,24 @@ function insertColorSelect(sel) {
         break;
     }
 }
+/*******************************************************************/
+function insertFunction() {
+            $(".jsArea__text").val("function yourFunction () {}");
+            event.preventDefault();
+    }
+ /***************************************************************************/
+ function showHtmlChar() {
+    $('.htmlArea__selectChar--visible').toggleClass('htmlArea__selectChar--hide');
+    $('.htmlArea__params--close').toggleClass('htmlArea__params--gear');
+    event.preventDefault();
+}
+function showCssChar() {
+    $('.cssArea__selectChar--visible').toggleClass('cssArea__selectChar--hide');
+    $('.cssArea__params--close').toggleClass('cssArea__params--gear');
+    event.preventDefault();
+}
+function showJsChar() {
+    $('.jsArea__selectChar--visible').toggleClass('jsArea__selectChar--hide');
+    $('.jsArea__params--close').toggleClass('jsArea__params--gear');
+    event.preventDefault();
+}

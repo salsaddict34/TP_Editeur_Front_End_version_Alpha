@@ -80,6 +80,8 @@ label {
 .htmlArea {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .htmlArea > h2 {
   grid-row: 1;
@@ -91,31 +93,41 @@ label {
 .htmlArea__params {
   grid-row: 2;
   grid-column: 1;
-  height: 40px;
-  width: 40px;
-  background-image: url("../images/btnParams.png");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-color: orange;
+  height: 30px;
+  width: 30px;
   border-radius: 5px;
 }
 .htmlArea__params--close {
   background-image: url("../images/orangeCross.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: orange;
+}
+.htmlArea__params--gear {
+  background-image: url("../images/btnParams.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: orange;
 }
 .htmlArea__selectChar {
-  display: none;
   grid-row: 2;
   grid-column: 1/2;
   width: 100%;
-  height: 40px;
+  height: 20px;
   transform: translateX(42px);
 }
 .htmlArea__selectChar--visible {
   display: inline;
 }
+.htmlArea__selectChar--hide {
+  display: none;
+}
 .htmlArea__tools {
   grid-row: 3;
   grid-column: 1/3;
+}
+.htmlArea__tools__titleSelect {
+  border-radius: 5px;
 }
 .htmlArea__tools__tagButton {
   border-radius: 10px;
@@ -124,8 +136,8 @@ label {
 .htmlArea__text {
   grid-row: 4;
   grid-column: 1/3;
-  height: 300px;
-  min-width: 500px;
+  height: 250px;
+  min-width: 450px;
   background-color: rgb(160, 140, 140);
 }
 .htmlArea__progressbar {
@@ -292,6 +304,8 @@ label {
 .cssArea {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .cssArea > h2 {
   grid-row: 1;
@@ -303,22 +317,41 @@ label {
 .cssArea__params {
   grid-row: 2;
   grid-column: 1;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+}
+.cssArea__params--close {
+  background-image: url("../images/orangeCross.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: orange;
+}
+.cssArea__params--gear {
   background-image: url("../images/btnParams.png");
   background-repeat: no-repeat;
   background-size: 100%;
   background-color: orange;
-  border-radius: 5px;
 }
 .cssArea__selectChar {
-  display: none;
   grid-row: 2;
-  grid-column: 1;
+  grid-column: 1/2;
+  width: 100%;
+  height: 20px;
+  transform: translateX(42px);
+}
+.cssArea__selectChar--visible {
+  display: inline;
+}
+.cssArea__selectChar--hide {
+  display: none;
 }
 .cssArea__tools {
   grid-row: 3;
   grid-column: 1/3;
+}
+.cssArea__tools__selectColor {
+  border-radius: 5px;
 }
 .cssArea__tools__selectColor--blanc {
   background-color: white;
@@ -338,8 +371,8 @@ label {
 .cssArea__text {
   grid-column: 1/3;
   grid-row: 4;
-  height: 300px;
-  min-width: 500px;
+  height: 250px;
+  min-width: 450px;
   background-color: rgb(160, 140, 140);
 }
 .cssArea__progressbar {
@@ -506,6 +539,8 @@ label {
 .jsArea {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .jsArea > h2 {
   grid-row: 1;
@@ -517,24 +552,48 @@ label {
 .jsArea__params {
   grid-row: 2;
   grid-column: 1;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+}
+.jsArea__params--close {
+  background-image: url("../images/orangeCross.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: orange;
+}
+.jsArea__params--gear {
   background-image: url("../images/btnParams.png");
   background-repeat: no-repeat;
   background-size: 100%;
   background-color: orange;
-  border-radius: 5px;
 }
 .jsArea__selectChar {
-  display: none;
   grid-row: 2;
-  grid-column: 1;
+  grid-column: 1/2;
+  width: 100%;
+  height: 20px;
+  transform: translateX(42px);
+}
+.jsArea__selectChar--visible {
+  display: inline;
+}
+.jsArea__selectChar--hide {
+  display: none;
+}
+.jsArea__tools {
+  grid-row: 3;
+  grid-column: 1/3;
+}
+.jsArea__tools__functionButton {
+  border-radius: 10px;
+  background-color: orange;
 }
 .jsArea__text {
   grid-row: 4;
   grid-column: 1/3;
-  height: 300px;
-  min-width: 500px;
+  height: 250px;
+  min-width: 450px;
   background-color: rgb(160, 140, 140);
 }
 .jsArea__progressbar {
@@ -550,19 +609,18 @@ label {
 .displayArea {
   grid-row: 4;
   grid-column: 1/3;
-  width: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1;
 }
 .displayArea > h2 {
   grid-row: 1;
-  grid-column: 1/3;
   text-align: center;
   color: white;
 }
 .displayArea__result {
   grid-row: 2;
-  grid-column: 1/3;
   width: 100%;
   height: 300px;
   border-radius: 10px;

@@ -27,13 +27,6 @@
            max: 200
            });
        } );
-       /***************************************************************************/
-       
-       function showHtmlChar() {
-            $('.htmlArea__selectChar').toggleClass('htmlArea__selectChar--visible');
-            $('.htmlArea__params').toggleClass('htmlArea__params--close');
-            event.preventDefault();
-       }
 </script>
 
 <body>
@@ -53,8 +46,8 @@
     <form action="" class="editionForm">
         <div class="htmlArea">
             <h2>HTML</h2>
-            <button class="htmlArea__params htmlArea__params--close" onclick="showHtmlChar();"></button>
-            <select class="htmlArea__selectChar htmlArea__selectChar--visible" onchange="updateHtmlSelect(this);">
+            <button class="htmlArea__params htmlArea__params--gear htmlArea__params--close" onclick="showHtmlChar();"></button>
+            <select class="htmlArea__selectChar htmlArea__selectChar--visible htmlArea__selectChar--hide" onchange="updateHtmlSelect(this);">
                 <option value="">--Caractères max--</option>
                 <option value="200">200 caractères</option>
                 <option value="400">400 caractères</option>
@@ -62,7 +55,7 @@
             </select>
             <div class="htmlArea__tools">
                 <select class="htmlArea__tools__titleSelect" onchange="insertTitleSelect(this);">
-                    <option value="">--Balises Titre--</option>
+                    <option value="">Title</option>
                     <option value="h1">h1</option>
                     <option value="h2">h2</option>
                     <option value="h3">h3</option>
@@ -85,8 +78,8 @@
                         <!-------------------------- CSS Area ---------------------------------->  
         <div class="cssArea">
             <h2>CSS</h2>
-            <button class="cssArea__params" onclick="showCssChar();"></button>
-            <select class="cssArea__selectChar" onchange="updateCssSelect(this);">
+            <button class="cssArea__params cssArea__params--gear cssArea__params--close" onclick="showCssChar();"></button>
+            <select class="cssArea__selectChar cssArea__selectChar--visible cssArea__selectChar--hide" onchange="updateCssSelect(this);">
                 <option value="">--Caractères max--</option>
                 <option value="200">200 caractères</option>
                 <option value="400">400 caractères</option>
@@ -94,7 +87,7 @@
             </select>
             <div class="cssArea__tools">
                 <select class="cssArea__tools__selectColor" onchange="insertColorSelect(this);">
-                    <option value="">--Couleurs Css--</option>
+                    <option value="">Color</option>
                     <option class="cssArea__tools__selectColor--blanc" value="Blanc"></option>
                     <option class="cssArea__tools__selectColor--rouge" value="Rouge"></option>
                     <option class="cssArea__tools__selectColor--vert" value="Vert"></option>
@@ -110,13 +103,16 @@
                          <!-------------------------- JS Area ---------------------------------->
         <div class="jsArea">
             <h2>JS</h2>
-            <button class="jsArea__params" onclick="showJsChar();"></button>
-            <select class="jsArea__selectChar" onchange="updateJsSelect(this);">
+            <button class="jsArea__params jsArea__params--gear jsArea__params--close" onclick="showJsChar();"></button>
+            <select class="jsArea__selectChar jsArea__selectChar--visible jsArea__selectChar--hide" onchange="updateJsSelect(this);">
                 <option value="">--Caractères max--</option>
                 <option value="200">200 caractères</option>
                 <option value="400">400 caractères</option>
                 <option value="600">600 caractères</option>
             </select>
+            <div class="jsArea__tools">
+                <button name="functionButton" class="jsArea__tools__functionButton" onclick="insertFunction();">function()</button>
+            </div>
             <textarea class="jsArea__text" spellcheck="false" onchange="updateIframe();" maxlength="200"></textarea>
             <div class="jsArea__progressbar"></div>
             <label class="jsArea__maxChar"></label>
