@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------*/
-/* update the ifrmae view whenever HTML, CSS, or JS/jQuery is enter */
+/* update the iframe view whenever HTML, CSS, or JS/jQuery is enter */
 /*------------------------------------------------------------------*/
 
 function updateIframe(){
@@ -8,10 +8,11 @@ function updateIframe(){
     var textareaJsValue = $(".jsArea__text").val();
     var cssLink = "<style>" + textareaCssValue + "</style>";
     var js ='<script>'+textareaJsValue+'<\/script>';
+    var head_jquery = '<script src="https://code.jquery.com/jquery-3.6.1.min.js"><\/script>';
     var myFrame = $(".displayArea__result").contents().find('body');
     var head = $(".displayArea__result").contents().find("head");
+    head.empty();
     head.append(cssLink);
-    
     myFrame.html(textareaHtmlValue);
     myFrame.append(js);
     /****************************HTML**********************************************/

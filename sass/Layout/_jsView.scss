@@ -63,4 +63,8 @@
         width: auto;
         height: 10px;
     }
+    &__maxChar {
+		grid-row: 6;
+		grid-column: 1;
+	}
 }
