@@ -79,7 +79,6 @@ label {
 /**********************************************************************************************/
 .htmlArea {
   display: grid;
-  grid-template-columns: 3;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -145,6 +144,14 @@ label {
   height: 250px;
   min-width: 450px;
   background-color: rgb(160, 140, 140);
+  resize: none;
+  overflow-y: scroll;
+}
+.htmlArea__text::-webkit-scrollbar {
+  width: 10px;
+}
+.htmlArea__text::-webkit-scrollbar-thumb {
+  background-color: #ff8c00;
 }
 .htmlArea__progressbar {
   grid-row: 5;
@@ -447,7 +454,6 @@ label {
 /**********************************************************************************************/
 .cssArea {
   display: grid;
-  grid-template-columns: 3;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -524,6 +530,14 @@ label {
   height: 250px;
   min-width: 450px;
   background-color: rgb(160, 140, 140);
+  resize: none;
+  overflow-y: scroll;
+}
+.cssArea__text::-webkit-scrollbar {
+  width: 10px;
+}
+.cssArea__text::-webkit-scrollbar-thumb {
+  background-color: #ff8c00;
 }
 .cssArea__progressbar {
   grid-row: 5;
@@ -826,7 +840,6 @@ label {
 /**********************************************************************************************/
 .jsArea {
   display: grid;
-  grid-template-columns: 3;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -889,6 +902,14 @@ label {
   height: 250px;
   min-width: 450px;
   background-color: rgb(160, 140, 140);
+  resize: none;
+  overflow-y: scroll;
+}
+.jsArea__text::-webkit-scrollbar {
+  width: 10px;
+}
+.jsArea__text::-webkit-scrollbar-thumb {
+  background-color: #ff8c00;
 }
 .jsArea__progressbar {
   grid-row: 5;

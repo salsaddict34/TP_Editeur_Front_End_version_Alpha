@@ -1,6 +1,6 @@
 .htmlArea {
     display: grid;
-    grid-template-columns: 3;
+    //grid-template-columns: repeat(3, 1fr);
     margin-left: 5px;
     margin-right: 5px;
 
@@ -70,6 +70,16 @@
         height: 250px;
         min-width: 450px;
         background-color: $resultColor;
+        resize: none;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+
+            &-thumb {
+                background-color: #ff8c00;
+            }
+        }
     }
 
     &__progressbar {
