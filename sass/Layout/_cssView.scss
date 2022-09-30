@@ -1,69 +1,84 @@
 .cssArea {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+	display: grid;
+	grid-template-columns: 3;
 	margin-left: 5px;
 	margin-right: 5px;
-	> h2 {
+
+	>h2 {
 		grid-row: 1;
 		grid-column: 1/3;
 		text-align: center;
 		color: $h2Color;
 		font-size: $h2FontSize;
 	}
+
 	&__params {
 		grid-row: 2;
-            grid-column: 1;
-            height: $gearHeight;
-            width: $gearWidth;
-            border-radius: 5px;
-            &--close {
-                background-image: url('../images/orangeCross.png');
-                background-repeat: no-repeat;
-                background-size: 100%;
-                background-color: orange;
-            }
-            &--gear {
-                background-image: url('../images/btnParams.png');
-                background-repeat: no-repeat;
-                background-size: 100%;
-                background-color: orange;
-            }
+		grid-column: 1;
+		height: $gearHeight;
+		width: $gearWidth;
+		border-radius: 5px;
+
+		&--close {
+			background-image: url('../images/orangeCross.png');
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-color: orange;
+		}
+
+		&--gear {
+			background-image: url('../images/btnParams.png');
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-color: orange;
+		}
 	}
-	&__selectChar{
+
+	&__selectChar {
 		grid-row: 2;
-            grid-column: 1/2;
-            width: 100%;    
-            height: 20px;
-            transform: translateX(42px);
-            &--visible {
-                display: inline;
-            }
-            &--hide {
-                display: none;
-            }
+		grid-column: 1/2;
+		width: 100%;
+		height: 20px;
+		transform: translateX(42px);
+
+		&--visible {
+			display: inline;
+		}
+
+		&--hide {
+			display: none;
+		}
 	}
-	&__tools{
+
+	&__tools {
 		grid-row: 3;
 		grid-column: 1/3;
+
 		&__selectColor {
 			border-radius: 5px;
+
 			&--blanc {
 				background-color: white;
 			}
+
 			&--rouge {
 				background-color: red;
 			}
+
 			&--vert {
 				background-color: green;
 			}
+
 			&--bleu {
 				background-color: blue;
 			}
+
 			&--jaune {
 				background-color: yellow;
 			}
 		}
 	}
+
 	&__text {
 		grid-column: 1/3;
 		grid-row: 4;
@@ -71,22 +86,26 @@
 		min-width: 450px;
 		background-color: $resultColor;
 	}
+
 	&__progressbar {
 		grid-row: 5;
 		grid-column: 1/3;
 		width: auto;
 		height: 10px;
 	}
+
 	&__maxChar {
 		grid-row: 6;
 		grid-column: 1;
 	}
+
 	&__animation {
 		display: none;
 		grid-column: 2/3;
 		grid-row: 6;
 		height: 15px;
 		color: $animationFontColor;
+
 		&:before {
 			content: " ";
 			animation-name: writing-css;
@@ -95,90 +114,89 @@
 		}
 	}
 }
-@keyframes writing-css
-{
-	from
-	{
+
+@keyframes writing-css {
+	from {
 		content: " ";
 	}
-	5%
-	{
+
+	5% {
 		content: "#";
 	}
-	10%
-	{
+
+	10% {
 		content: "#t";
-    }
-	15%
-	{
+	}
+
+	15% {
 		content: "#ta";
 	}
-	20%
-	{
+
+	20% {
 		content: "#tag ";
 	}
-	25%
-	{
+
+	25% {
 		content: "#tag {}";
 	}
-	30%
-	{
+
+	30% {
 		content: "#tag {c}";
 	}
-	35%
-	{
+
+	35% {
 		content: "#tag {co}";
 	}
-    40%
-	{
+
+	40% {
 		content: "#tag {col}";
 	}
-	45%
-	{
+
+	45% {
 		content: "#tag {colo}";
 	}
-	50%
-	{
+
+	50% {
 		content: "#tag {color}";
 	}
-	55%
-	{
+
+	55% {
 		content: "#tag {color:}";
 	}
-	60%
-	{
+
+	60% {
 		content: "#tag {color: }";
 	}
-	65%
-	{
+
+	65% {
 		content: "#tag {color: g}";
 	}
-    70%
-	{
+
+	70% {
 		content: "#tag {color: gr}";
 	}
-	75%
-	{
+
+	75% {
 		content: "#tag {color: gre}";
 	}
-	80%
-	{
+
+	80% {
 		content: "#tag {color: gree}";
 	}
-	85%
-	{
+
+	85% {
 		content: "#tag {color: green}";
 	}
-	90%
-	{
+
+	90% {
 		content: "#tag {color: green;}";
 	}
-	95%
-	{
+
+	95% {
 		content: "#tag {color: green;}";
 	}
-	to
-	{
+
+	to {
 		content: "#tag {color: green;}";
 	}
 }
