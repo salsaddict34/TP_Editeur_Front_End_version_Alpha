@@ -1,6 +1,8 @@
 .htmlArea {
     display: grid;
-    //grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: max-content;
+    row-gap: 0;
     margin-left: 5px;
     margin-right: 5px;
 
@@ -10,6 +12,7 @@
         text-align: center;
         color: $h2Color;
         font-size: $h2FontSize;
+        margin: 0;
     }
 
     &__params {
@@ -35,7 +38,7 @@
     }
 
     &__selectChar {
-        grid-row: 2;
+        grid-row: 2/2;
         grid-column: 1/2;
         width: 100%;
         height: 20px;
@@ -74,10 +77,11 @@
         overflow-y: scroll;
 
         &::-webkit-scrollbar {
-            width: 10px;
+            width: 6px;
 
             &-thumb {
-                background-color: #ff8c00;
+                background: $scrollbarColor;
+                border-radius: 10px;
             }
         }
     }
@@ -96,7 +100,7 @@
 
     &__animation {
         display: none;
-        grid-row: 6;
+        grid-row: 6/6;
         grid-column: 2/3;
         height: 15px;
         color: $animationFontColor;
@@ -194,4 +198,8 @@
     to {
         content: "<div>Hello World! :)</div>";
     }
+}
+
+#htmlArea__progressbar {
+    height: 10px;
 }

@@ -25,7 +25,7 @@
         });
         $(".jsArea__progressbar").progressbar({
             value: 0,
-            max: 200
+            max: 400
         });
     });
 </script>
@@ -36,7 +36,7 @@
     <!---------------------------------------------------------------------------------------------------------------->
 
     <header>
-        <h1>Editor HTML & CSS & JS</h1>
+        <h1>Front Editor</h1>
     </header>
 
     <!---------------------------------------------------------------------------------------------------------------->
@@ -77,7 +77,7 @@
                     onclick="insertTag('section');">section</button>
             </div>
             <textarea class="htmlArea__text" spellcheck="false" oninput="updateIframe();" maxlength="200"></textarea>
-            <div class="htmlArea__progressbar"></div>
+            <div id="htmlArea__progressbar" class="htmlArea__progressbar"></div>
             <label class="htmlArea__maxChar"></label>
             <div class="htmlArea__animation"></div>
         </div>
@@ -104,7 +104,7 @@
                 </select>
             </div>
             <textarea class="cssArea__text" spellcheck="false" oninput="updateIframe();" maxlength="200"></textarea>
-            <div class="cssArea__progressbar"></div>
+            <div id="cssArea__progressbar" class="cssArea__progressbar"></div>
             <label class="cssArea__maxChar"></label>
             <div class="cssArea__animation"></div>
         </div>
@@ -115,16 +115,17 @@
             <select class="jsArea__selectChar jsArea__selectChar--visible jsArea__selectChar--hide"
                 onchange="updateJsSelect(this);">
                 <option value="">--Caractères max--</option>
-                <option value="200">200 caractères</option>
                 <option value="400">400 caractères</option>
                 <option value="600">600 caractères</option>
+                <option value="800">800 caractères</option>
             </select>
             <div class="jsArea__tools">
                 <button name="functionButton" class="jsArea__tools__functionButton"
                     onclick="insertFunction();">function()</button>
             </div>
-            <textarea class="jsArea__text" spellcheck="false" onchange="updateIframe();" maxlength="200"></textarea>
-            <div class="jsArea__progressbar"></div>
+            <textarea class="jsArea__text" spellcheck="false" onchange="updateIframe();" oninput="jsMaxCahr();"
+                maxlength="200"></textarea>
+            <div id="jsArea__progressbar" class="jsArea__progressbar"></div>
             <label class="jsArea__maxChar"></label>
         </div>
     </form>

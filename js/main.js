@@ -1,21 +1,21 @@
 /********************************************************************************/
-function updateHtmlSelect(sel){
+function updateHtmlSelect(sel) {
     let textHtml = $('.htmlArea__text').val();
     let textParsed = textHtml.replaceAll(/<[^>]+>|$nbsp;| |\n/g, '');
     let delta = textHtml.length - textParsed.length;
-    $('.htmlArea__text').attr('maxlength', sel.value + delta);
-    $('.htmlArea__maxChar').text('(max'+ ' '+sel.value+' '+'caractères)');
+    $('.htmlArea__text').attr('maxlength', Number(sel.value) + Number(delta));
+    $('.htmlArea__maxChar').text('(max' + ' ' + sel.value + ' ' + 'caractères)');
 }
-function updateCssSelect(sel){
+function updateCssSelect(sel) {
     let textCss = $('.cssArea__text').val();
     let textCssParsed = textCss.replaceAll(/\{|\}|\s|:|;|\.|#|\n/g, '');
     let deltaCss = textCss.length - textCssParsed.length;
-    $('.cssArea__text').attr('maxlength', sel.value + deltaCss);
-    $('.cssArea__maxChar').text('(max'+ ' '+sel.value+' '+'caractères)');
+    $('.cssArea__text').attr('maxlength', Number(sel.value) + Number(deltaCss));
+    $('.cssArea__maxChar').text('(max' + ' ' + sel.value + ' ' + 'caractères)');
 }
-function updateJsSelect(sel){
+function updateJsSelect(sel) {
     $('.jsArea__text').attr('maxlength', sel.value);
-    $('.jsArea__maxChar').text('(max'+ ' '+sel.value+' '+'caractères)');
+    $('.jsArea__maxChar').text('(max' + ' ' + sel.value + ' ' + 'caractères)');
 }
 /*******************************************************************/
 function insertTag(tag) {
@@ -23,31 +23,31 @@ function insertTag(tag) {
     switch (tag) {
         case 'div':
             $(".htmlArea__text").val(textareaHtmlValue + "<div></div>");
-        break;
-        case 'p': 
+            break;
+        case 'p':
             $(".htmlArea__text").val(textareaHtmlValue + "<p></p>");
-        break;
-        case 'section': 
+            break;
+        case 'section':
             $(".htmlArea__text").val(textareaHtmlValue + "<section></section>");
-        break;
-        case 'form': 
+            break;
+        case 'form':
             $(".htmlArea__text").val(textareaHtmlValue + "<form></form>");
-        break;
-        case 'a': 
+            break;
+        case 'a':
             $(".htmlArea__text").val(textareaHtmlValue + "<a></a>");
-        break;
-        case 'image': 
+            break;
+        case 'image':
             $(".htmlArea__text").val(textareaHtmlValue + "<image/>");
-        break;
-        case 'b': 
+            break;
+        case 'b':
             $(".htmlArea__text").val(textareaHtmlValue + "<b></b>");
-        break;
-        case 'i': 
+            break;
+        case 'i':
             $(".htmlArea__text").val(textareaHtmlValue + "<i></i>");
-        break;
-        case 'button': 
+            break;
+        case 'button':
             $(".htmlArea__text").val(textareaHtmlValue + "<button onclick=''></button>");
-        break;
+            break;
     }
     event.preventDefault();
 }
@@ -57,13 +57,13 @@ function insertTitleSelect(sel) {
     switch (sel.value) {
         case 'h1':
             $(".htmlArea__text").val(textareaHtmlValue + "<h1></h1>");
-        break;
-        case 'h2': 
+            break;
+        case 'h2':
             $(".htmlArea__text").val(textareaHtmlValue + "<h2></h2>");
-        break;
-        case 'h3': 
+            break;
+        case 'h3':
             $(".htmlArea__text").val(textareaHtmlValue + "<h3></h3>");
-        break;
+            break;
     }
 }
 /*******************************************************************/
@@ -72,28 +72,28 @@ function insertColorSelect(sel) {
     switch (sel.value) {
         case 'Blanc':
             $(".cssArea__text").val(textareaCssValue + "#FFFFFF");
-        break;
+            break;
         case 'Rouge':
             $(".cssArea__text").val(textareaCssValue + "#C0392B");
-        break;
+            break;
         case 'Vert':
             $(".cssArea__text").val(textareaCssValue + "#27AE60");
-        break;
+            break;
         case 'Bleu':
             $(".cssArea__text").val(textareaCssValue + "#2980B9");
-        break;
+            break;
         case 'Jaune':
             $(".cssArea__text").val(textareaCssValue + "#F1C40F");
-        break;
+            break;
     }
 }
 /*******************************************************************/
 function insertFunction() {
-            $(".jsArea__text").val("function yourFunction () {}");
-            event.preventDefault();
-    }
- /***************************************************************************/
- function showHtmlChar() {
+    $(".jsArea__text").val("function yourFunction () {}");
+    event.preventDefault();
+}
+/***************************************************************************/
+function showHtmlChar() {
     $('.htmlArea__selectChar--visible').toggleClass('htmlArea__selectChar--hide');
     $('.htmlArea__params--close').toggleClass('htmlArea__params--gear');
     event.preventDefault();

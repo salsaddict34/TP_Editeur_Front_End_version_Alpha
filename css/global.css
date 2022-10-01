@@ -79,6 +79,10 @@ label {
 /**********************************************************************************************/
 .htmlArea {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: -webkit-max-content;
+  grid-template-rows: max-content;
+  row-gap: 0;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -88,6 +92,7 @@ label {
   text-align: center;
   color: white;
   font-size: 20px;
+  margin: 0;
 }
 .htmlArea__params {
   grid-row: 2;
@@ -111,7 +116,7 @@ label {
   background-color: orange;
 }
 .htmlArea__selectChar {
-  grid-row: 2;
+  grid-row: 2/2;
   grid-column: 1/2;
   width: 100%;
   height: 20px;
@@ -148,10 +153,12 @@ label {
   overflow-y: scroll;
 }
 .htmlArea__text::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 .htmlArea__text::-webkit-scrollbar-thumb {
-  background-color: #ff8c00;
+  background: -webkit-linear-gradient(#000000, #ff7d04, #000000);
+  background: linear-gradient(#000000, #ff7d04, #000000);
+  border-radius: 10px;
 }
 .htmlArea__progressbar {
   grid-row: 5;
@@ -165,7 +172,7 @@ label {
 }
 .htmlArea__animation {
   display: none;
-  grid-row: 6;
+  grid-row: 6/6;
   grid-column: 2/3;
   height: 15px;
   color: white;
@@ -449,11 +456,19 @@ label {
     content: "<div>Hello World! :)</div>";
   }
 }
+#htmlArea__progressbar {
+  height: 10px;
+}
+
 /**********************************************************************************************/
 /***************************************** CSS View *******************************************/
 /**********************************************************************************************/
 .cssArea {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: -webkit-max-content;
+  grid-template-rows: max-content;
+  row-gap: 0;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -463,6 +478,7 @@ label {
   text-align: center;
   color: white;
   font-size: 20px;
+  margin: 0;
 }
 .cssArea__params {
   grid-row: 2;
@@ -534,10 +550,12 @@ label {
   overflow-y: scroll;
 }
 .cssArea__text::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 .cssArea__text::-webkit-scrollbar-thumb {
-  background-color: #ff8c00;
+  background: -webkit-linear-gradient(#000000, #ff7d04, #000000);
+  background: linear-gradient(#000000, #ff7d04, #000000);
+  border-radius: 10px;
 }
 .cssArea__progressbar {
   grid-row: 5;
@@ -835,11 +853,19 @@ label {
     content: "#tag {color: green;}";
   }
 }
+#cssArea__progressbar {
+  height: 10px;
+}
+
 /**********************************************************************************************/
 /***************************************** JS View ********************************************/
 /**********************************************************************************************/
 .jsArea {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: -webkit-max-content;
+  grid-template-rows: max-content;
+  row-gap: 0;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -849,6 +875,7 @@ label {
   text-align: center;
   color: white;
   font-size: 20px;
+  margin: 0;
 }
 .jsArea__params {
   grid-row: 2;
@@ -906,10 +933,12 @@ label {
   overflow-y: scroll;
 }
 .jsArea__text::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 .jsArea__text::-webkit-scrollbar-thumb {
-  background-color: #ff8c00;
+  background: -webkit-linear-gradient(#000000, #ff7d04, #000000);
+  background: linear-gradient(#000000, #ff7d04, #000000);
+  border-radius: 10px;
 }
 .jsArea__progressbar {
   grid-row: 5;
@@ -920,6 +949,10 @@ label {
 .jsArea__maxChar {
   grid-row: 6;
   grid-column: 1;
+}
+
+#jsArea__progressbar {
+  height: 10px;
 }
 
 /**********************************************************************************************/
@@ -936,6 +969,7 @@ label {
   grid-row: 1;
   text-align: center;
   color: white;
+  margin: 0;
 }
 .displayArea__result {
   grid-row: 2;
