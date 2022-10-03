@@ -35,7 +35,7 @@ body {
   border-radius: 10px;
   box-shadow: 5px;
   display: grid;
-  grid-template-columns: 3;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /**********************************************************************************************/
@@ -44,7 +44,7 @@ body {
 header {
   height: 60px;
   text-align: center;
-  grid-column: 1/3;
+  grid-column: 1/4;
   grid-row: 1;
 }
 
@@ -59,6 +59,7 @@ h1 {
 .editionForm {
   width: 100%;
   grid-row: 2;
+  grid-column: 1/4;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(450px, auto);
@@ -72,9 +73,7 @@ select {
 label {
   text-align: center;
   color: white;
-}
-
-/**********************************************************************************************/
+} /**********************************************************************************************/
 /***************************************** HTML View ******************************************/
 /**********************************************************************************************/
 .htmlArea {
@@ -88,7 +87,7 @@ label {
 }
 .htmlArea > h2 {
   grid-row: 1;
-  grid-column: 1/3;
+  grid-column: 1/4;
   text-align: center;
   color: white;
   font-size: 20px;
@@ -117,7 +116,7 @@ label {
 }
 .htmlArea__selectChar {
   grid-row: 2/2;
-  grid-column: 1/2;
+  grid-column: 1/3;
   width: 100%;
   height: 20px;
   -webkit-transform: translateX(42px);
@@ -134,7 +133,7 @@ label {
 }
 .htmlArea__tools {
   grid-row: 3;
-  grid-column: 1/3;
+  grid-column: 1/4;
 }
 .htmlArea__tools__titleSelect {
   border-radius: 5px;
@@ -145,7 +144,7 @@ label {
 }
 .htmlArea__text {
   grid-row: 4;
-  grid-column: 1/3;
+  grid-column: 1/4;
   height: 250px;
   min-width: 450px;
   background-color: rgb(160, 140, 140);
@@ -162,7 +161,7 @@ label {
 }
 .htmlArea__progressbar {
   grid-row: 5;
-  grid-column: 1/3;
+  grid-column: 1/4;
   width: auto;
   height: 10px;
 }
@@ -172,8 +171,8 @@ label {
 }
 .htmlArea__animation {
   display: none;
-  grid-row: 6/6;
-  grid-column: 2/3;
+  grid-row: 6;
+  grid-column: 2/4;
   height: 15px;
   color: white;
 }
@@ -474,7 +473,7 @@ label {
 }
 .cssArea > h2 {
   grid-row: 1;
-  grid-column: 1/3;
+  grid-column: 1/4;
   text-align: center;
   color: white;
   font-size: 20px;
@@ -503,7 +502,7 @@ label {
 }
 .cssArea__selectChar {
   grid-row: 2;
-  grid-column: 1/2;
+  grid-column: 1/3;
   width: 100%;
   height: 20px;
   -webkit-transform: translateX(42px);
@@ -520,7 +519,7 @@ label {
 }
 .cssArea__tools {
   grid-row: 3;
-  grid-column: 1/3;
+  grid-column: 1/4;
 }
 .cssArea__tools__selectColor {
   border-radius: 5px;
@@ -541,7 +540,7 @@ label {
   background-color: yellow;
 }
 .cssArea__text {
-  grid-column: 1/3;
+  grid-column: 1/4;
   grid-row: 4;
   height: 250px;
   min-width: 450px;
@@ -559,7 +558,7 @@ label {
 }
 .cssArea__progressbar {
   grid-row: 5;
-  grid-column: 1/3;
+  grid-column: 1/4;
   width: auto;
   height: 10px;
 }
@@ -569,7 +568,7 @@ label {
 }
 .cssArea__animation {
   display: none;
-  grid-column: 2/3;
+  grid-column: 2/4;
   grid-row: 6;
   height: 15px;
   color: white;
@@ -871,7 +870,7 @@ label {
 }
 .jsArea > h2 {
   grid-row: 1;
-  grid-column: 1/3;
+  grid-column: 1/4;
   text-align: center;
   color: white;
   font-size: 20px;
@@ -900,7 +899,7 @@ label {
 }
 .jsArea__selectChar {
   grid-row: 2;
-  grid-column: 1/2;
+  grid-column: 1/3;
   width: 100%;
   height: 20px;
   -webkit-transform: translateX(42px);
@@ -917,7 +916,7 @@ label {
 }
 .jsArea__tools {
   grid-row: 3;
-  grid-column: 1/3;
+  grid-column: 1/4;
 }
 .jsArea__tools__functionButton {
   border-radius: 10px;
@@ -925,7 +924,7 @@ label {
 }
 .jsArea__text {
   grid-row: 4;
-  grid-column: 1/3;
+  grid-column: 1/4;
   height: 250px;
   min-width: 450px;
   background-color: rgb(160, 140, 140);
@@ -942,7 +941,7 @@ label {
 }
 .jsArea__progressbar {
   grid-row: 5;
-  grid-column: 1/3;
+  grid-column: 1/4;
   width: auto;
   height: 10px;
 }
@@ -960,7 +959,7 @@ label {
 /**********************************************************************************************/
 .displayArea {
   grid-row: 4;
-  grid-column: 1/3;
+  grid-column: 1/4;
   margin-left: 5px;
   margin-right: 5px;
   display: grid;
@@ -985,6 +984,7 @@ label {
 /**********************************************************************************************/
 footer {
   grid-row: 5;
+  grid-column: 1/4;
   margin: auto;
   width: 100%;
   height: 50px;

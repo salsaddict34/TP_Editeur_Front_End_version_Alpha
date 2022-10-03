@@ -8,7 +8,7 @@
 
 	>h2 {
 		grid-row: 1;
-		grid-column: 1/3;
+		grid-column: 1/4;
 		text-align: center;
 		color: $h2Color;
 		font-size: $h2FontSize;
@@ -39,7 +39,7 @@
 
 	&__selectChar {
 		grid-row: 2;
-		grid-column: 1/2;
+		grid-column: 1/3;
 		width: 100%;
 		height: 20px;
 		transform: translateX(42px);
@@ -55,7 +55,7 @@
 
 	&__tools {
 		grid-row: 3;
-		grid-column: 1/3;
+		grid-column: 1/4;
 
 		&__selectColor {
 			border-radius: 5px;
@@ -83,7 +83,7 @@
 	}
 
 	&__text {
-		grid-column: 1/3;
+		grid-column: 1/4;
 		grid-row: 4;
 		height: 250px;
 		min-width: 450px;
@@ -103,7 +103,7 @@
 
 	&__progressbar {
 		grid-row: 5;
-		grid-column: 1/3;
+		grid-column: 1/4;
 		width: auto;
 		height: 10px;
 	}
@@ -115,7 +115,7 @@
 
 	&__animation {
 		display: none;
-		grid-column: 2/3;
+		grid-column: 2/4;
 		grid-row: 6;
 		height: 15px;
 		color: $animationFontColor;
